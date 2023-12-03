@@ -1,0 +1,77 @@
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.sign-out {
+    margin-right: 1rem;
+    /* Spacing before the profile icon */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    border-right: 1px solid #ccc;
+    /* Light grey border */
+    min-height: 100vh;
+    /* Full height */
+}
+
+.sidebar .nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    /* Dark grey text */
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid #ccc;
+    /* Light grey border */
+    background-color: transparent;
+    /* Transparent background */
+    transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #f0f0f0;
+    /* Light grey background on hover/active */
+    color: #000;
+    /* Black text on hover/active */
+}
+
+/* Content Area Styles */
+.content-area {
+    padding: 1rem;
+}
+
+/* Footer Styles */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.footer a {
+    text-decoration: none;
+    color: #333;
+    /* Dark grey text */
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #000;
+    /* Black text on hover */
+}
+
+/* Utility Classes */
+.flex-grow {
+    flex: 1;
+}
