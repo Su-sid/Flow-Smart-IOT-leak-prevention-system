@@ -1,27 +1,84 @@
-# Data Analytics Layer for Water Distribution Network Leak Detection
+# Data Analytics Platform
 
-- This file outlines the key components and functionalities of the data analytics layer for leak detection for our system. 
+This platform provides data analysis capabilities for the Flow Smart leak detection system, using Jupyter notebooks to analyze sensor data and detect anomalies.
+
+## Prerequisites
+
+- Python 3.11 or higher
+- Jupyter Notebook/JupyterLab
+- pip package manager
+
+## Installation
+
+1. Create and activate a virtual environment (recommended):
+
+```sh
+python -m venv venv
+venv\Scripts\activate
+```
+
+2. Install required dependencies:
+
+```sh
+pip install jupyter numpy pandas Cython
+
+```
+
+## Running the Analysis
+
+1. Start Jupyter Notebook:
+
+```sh
+jupyter notebook
+```
+
+2. Navigate to and open `data-analysis.ipynb`
+
+3. Ensure `sensor_readings.json` is present in the same directory as the notebook
+
+4. Run the notebook cells sequentially to:
+   - Load sensor data
+   - Process and analyze flow rate and pressure readings
+   - Detect anomalies using the Page-Hinkley algorithm
+
+## Data Analysis Features
+
+- Real-time anomaly detection using Page-Hinkley method
+- Flow rate and pressure sensor data analysis
+- Time series visualization
+- Change point detection
+
+## File Structure
+
+- `data-analysis.ipynb`: Main analysis notebook
+- `sensor_readings.json`: Input sensor data
+- `skmultiflow/`: Machine learning library for data streams
+
+# Data Analytics Layer for Water Distribution Network Leak Detection
 
 - The analytics platform serves as the core computational logic for diagnosing the presence of leaks. The analysis process can be divided into several stages, each with a specific purpose.
 
 ## a. Preprocessing
 
 ### i. Data Arrangement
+
 - Sensor readings are organized in a structured tabular format with two main variables: Pressure (psi) and Flow (GPM).
 - Data is collected at regular intervals to establish trends in pressure and flow rates.
 - This data collection approach supports the development of a threshold for base case scenarios.
 
 ### ii. Establishing Base Cases
+
 - Data collection for establishing base cases is preferably done at night when the network has the lowest user activity and noise production.
 - The system aims to determine an optimal threshold for acceptable readings.
 - A range of accepted values (maximum and minimum) is set to identify abnormal spikes that may indicate leaks.
 - This value range accounts for the dynamic nature of readings due to changing water demand and system use.
 
 ### iii. Preprocessing
+
 - The mean trajectory removal technique is applied to create a clean and consistent dataset.
 - Mean subtraction (zero-centering) is used to center the data distribution around zero.
 - Benefits of mean centering include normalization, bias removal, algorithm stability, and interpretability.
-- Steps for using the mean trajectory removal technique: 
+- Steps for using the mean trajectory removal technique:
   1. Calculate the mean for each feature or dimension.
   2. Subtract the mean value from all data points in that feature's dimension.
 
